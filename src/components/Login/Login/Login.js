@@ -12,6 +12,7 @@ const Ligin = () => {
 
         signInUsingGoogle()
             .then(result => {
+                console.log(result);
                 setUser(result.user)
                 history.push(redirect_url)
             })
