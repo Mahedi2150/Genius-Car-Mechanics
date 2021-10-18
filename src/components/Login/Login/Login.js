@@ -20,7 +20,8 @@ const Ligin = () => {
     return (
         <div>
             <h2>Please login</h2>
-            <button onClick={handleGoogleSignIn} className="btn btn-warning">Google Sign In</button>
+            <button onClick={handleGoogleSignIn} className="btn btn-primary">Google Sign In</button>
+
         </div>
     );
 };
