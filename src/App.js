@@ -1,13 +1,13 @@
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
-import Booking from './components/Booking/Booking/Booking';
-import Home from './components/Home/Home/Home';
-import NotFound from './components/NotFound/NotFound';
-import Header from './components/Shared/Header/Header';
-import Login from './components/Login/Login/Login'
-import AuthProvider from './context/AuthProvider';
-import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import Booking from "./components/Booking/Booking/Booking";
+import Home from "./components/Home/Home/Home";
+import NotFound from "./components/NotFound/NotFound";
+import Header from "./components/Shared/Header/Header";
+import Login from "./components/Login/Login/Login";
+import AuthProvider from "./context/AuthProvider";
+import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
+import Page from "./components/Page/Page";
 
 function App() {
   return (
@@ -17,24 +17,33 @@ function App() {
           <Header></Header>
           <Switch>
             <Route exact path="/">
-              <Home></Home>
+              <Page title="Home">
+                <Home />
+              </Page>
             </Route>
             <Route path="/home">
-              <Home></Home>
+              <Page title="Home">
+                <Home />
+              </Page>
             </Route>
             <PrivateRoute path="/booking/:serviceId">
-              <Booking></Booking>
+              <Page title="Booking">
+                <Booking />
+              </Page>
             </PrivateRoute>
             <Route path="/login">
-              <Login></Login>
+              <Page title="Log In">
+                <Login />
+              </Page>
             </Route>
             <Route path="*">
-              <NotFound></NotFound>
+              <Page title="Page Not Found">
+                <NotFound />
+              </Page>
             </Route>
           </Switch>
         </Router>
       </AuthProvider>
-
     </div>
   );
 }
